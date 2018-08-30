@@ -1,0 +1,23 @@
+<div>
+    <article>
+        
+        <h3>
+            eventos-binding
+        </h3>
+
+        <button (click)="onClick()">Mostrar Mensagem</button>
+        <br>
+        <input type="text"
+            (keyup) ="onkeyup($event)" 
+            (keyup.enter)="eventoSave(campo.value)"
+            (blur) ="eventoSave(campo.value)" 
+            #campo
+        />
+        <br>
+        <div>conteúdo atual: {{ conteudoAtual }}</div>
+        <div>conteúdo armazenado: {{ conteudoArmazenado }}</div>
+        <span (mouseover)="eventoMouseOverOut()"
+              (mouseout)="eventoMouseOverOut()"
+              [class.destaque]="isMouseOver">Mais eventos no angular</span>
+    </article>
+</div>

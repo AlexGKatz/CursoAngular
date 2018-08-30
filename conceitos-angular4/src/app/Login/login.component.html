@@ -1,0 +1,19 @@
+<br>
+<div class="row">
+    <div>
+        <input type="text"
+                (keyup) ="onkeyup()" 
+                 #Login
+        />
+    </div>
+    <div>
+            <input type="text"
+                (keyup) ="onkeyup()"
+                #Senha />
+    </div>
+     <span (mouseover)="mudaCor()"
+              (mouseout)="mudaCor()"
+              [class.destaque]="isMouseOver">{{mensagem}}</span><br>
+    
+    <button (click)="onClick(Login.value,Senha.value);mudaCor()">Teste</button>
+</div>
