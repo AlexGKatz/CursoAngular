@@ -24,6 +24,19 @@ export class CadastroComponent implements OnInit {
     this.eventoSelecionado = item;  
   }
 
+  //para inclusão de um novo evento
+  private novoevento: IEvento;
+  public novo(){
+    this.novoevento = {descricao:'',data:'',preco:0}
+    this.eventoSelecionado = this.novoevento
+  }
+
+  public incluir(evento:IEvento){
+    this.listaEventos.push(evento);
+    this.novoevento = {descricao:'',data:'',preco:0}
+    this.eventoSelecionado = this.novoevento
+  }
+
 }
 
 
