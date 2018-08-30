@@ -3,24 +3,29 @@
   <hr>
   <div class="col-md-6">
     <ul class="lisst_group">
-      <li *ngFor="let item of listaEventos">
-        <a href="#">{{item.descricao}}</a>
+      <li *ngFor="let item of listaEventos" 
+        (click)="selecionar(item)" class="list-group-item">
+        <a [routerLink]="['/eventos']" [class.selecionado]="item===eventoSelecionado">{{item.descricao}}</a>
       </li>
     </ul>
   </div>
 
+  <div *ngIf="eventoSelecionado">
   <div class="col-md-6">
     <div class="form-group">
       <label for="descricao">Descrição</label>
-      <input type="text" class="form-control" id="descricao" name="descricao">
+      <input type="text" [(ngModel)]="eventoSelecionado.descricao"
+      class="form-control" id="descricao" name="descricao">
     </div>
     <div class="form-group">
       <label for="data">Data</label>
-      <input type="text" class="form-control" id="data" name="data">
+      <input type="text" [(ngModel)]="eventoSelecionado.data" 
+      class="form-control" id="data" name="data">
     </div>
     <div class="form-group">
       <label for="preco">Preço</label>
-      <input type="text" class="form-control" id="preco" name="preco">
+      <input type="text" [(ngModel)]="eventoSelecionado.preco" 
+      class="form-control" id="preco" name="preco">
     </div>
     <div class="form-group">
       <button type="button" class="btn btn-info"><i class="glyphicon glyphicon-pencil "></i>incluir</button>

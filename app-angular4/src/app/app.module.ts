@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms'
 
 //especificacao da rota deve vir antes dos componentes
 import { appRoutes } from './rotas/app.routes'
@@ -18,7 +19,7 @@ import { EventoService } from './Services/eventos.service';
     AppComponent, MenuComponent, HomeComponent, CadastroComponent, NotfoundComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoutes)
+    BrowserModule, RouterModule.forRoot(appRoutes), FormsModule
   ],
   providers: [EventoService],
   bootstrap: [AppComponent]

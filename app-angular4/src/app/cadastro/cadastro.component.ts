@@ -17,6 +17,13 @@ export class CadastroComponent implements OnInit {
     this.listaEventos = eventoService.getEventos();
   }
 
+  //para um evento selecionado
+  public eventoSelecionado: IEvento;
+
+  public selecionar(item: IEvento): void{
+    this.eventoSelecionado = item;  
+  }
+
 }
 
 
