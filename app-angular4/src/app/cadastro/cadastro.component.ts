@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IEvento } from '../interface/eventos.interfaces';
 import { EventoService } from '../Services/eventos.service';
+import { Config } from 'protractor';
+
 
 @Component({
   selector: 'app-cadastro',
@@ -11,10 +13,10 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit() {
   }
-  public listaEventos: IEvento[];
+  public listaEventos: Config;
 
   constructor(eventoService: EventoService) {
-    this.listaEventos = eventoService.getEventos();
+      eventoService.getEventoWs().subscribe(eventos=>this.listaEventos = eventos);
   }
 
   //para um evento selecionado
@@ -36,6 +38,8 @@ export class CadastroComponent implements OnInit {
     this.novoevento = {descricao:'',data:'',preco:0}
     this.eventoSelecionado = this.novoevento
   }
+
+  
 
 }
 

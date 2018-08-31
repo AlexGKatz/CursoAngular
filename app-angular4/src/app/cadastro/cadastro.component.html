@@ -2,9 +2,15 @@
   <h1>Cadastro de Eventos</h1>
   <hr>
   <div class="col-md-6">
-    <ul class="lisst_group">
-      <li *ngFor="let item of listaEventos" (click)="selecionar(item)" class="list-group-item">
-        <a [routerLink]="['/eventos']" [class.selecionado]="item===eventoSelecionado">{{item.descricao}}</a>
+
+    <div class="form-group">
+      <label>Informe a descrição:</label>
+      <input type="text"class="form-control" #busca (keyup)="0" />
+    </div>
+
+    <ul class="list-group">
+      <li *ngFor="let item of listaEventos | sublista:busca.value" (click)="selecionar(item)" class="list-group-item">
+        <a [routerLink]="['/eventos']" [class.selecionado]="item===eventoSelecionado">{{item.descricao | uppercase}}</a>
       </li>
     </ul>
     <button type="button" (click)="novo()" class="btn btn-info">
