@@ -15,8 +15,9 @@ export class CadastroComponent implements OnInit {
   }
   public listaEventos: Config;
 
-  constructor(eventoService: EventoService) {
-      eventoService.getEventoWs().subscribe(eventos=>this.listaEventos = eventos);
+  constructor(private eventoService: EventoService) {
+      //eventoService.getEventoWs().subscribe(eventos=>this.listaEventos = eventos);
+      this.listar()
   }
 
   //para um evento selecionado
@@ -34,12 +35,20 @@ export class CadastroComponent implements OnInit {
   }
 
   public incluir(evento:IEvento){
-    this.listaEventos.push(evento);
-    this.novoevento = {descricao:'',data:'',preco:0}
-    this.eventoSelecionado = this.novoevento
+    //this.listaEventos.push(evento);
+    this.eventoService.postEventosWs(evento)
+    .subscribe(
+      res=> JSON.stringify(res),
+      error => console.log(error),
+      () => this.listar()
+    );
+    //this.novoevento = {descricao:'',data:'',preco:0}
+    //this.eventoSelecionado = this.novoevento
   }
 
-  
+  public listar(){
+    this.eventoService.getEventoWs().subscribe(eventos=>this.listaEventos = eventos);
+  }
 
 }
 

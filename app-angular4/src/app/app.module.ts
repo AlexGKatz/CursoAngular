@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 
-import { HttpModule } from "@angular/http"
+//import { HttpModule } from "@angular/http"
 import { HttpClientModule } from "@angular/common/http"
  
 //especificacao da rota deve vir antes dos componentes
@@ -22,7 +22,7 @@ import { subLista } from './filters/sublistas.filter';
     AppComponent, MenuComponent, HomeComponent, CadastroComponent, NotfoundComponent,subLista
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule, HttpClientModule
+    BrowserModule, RouterModule.forRoot(appRoutes), FormsModule,  HttpClientModule
   ],
   providers: [EventoService],
   bootstrap: [AppComponent]

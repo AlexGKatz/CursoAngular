@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 
 import { Http, Response } from "@angular/http"
 import { HttpClient} from "@angular/common/http"
-//import { Observable } from "rxjs"
+import { Observable } from "rxjs"
 
 import { map } from "rxjs/operators"
 
@@ -20,6 +20,10 @@ export class EventoService {
 
     public getEventoWs(){
        return this._http.get(this.url)
+    }
+
+    public postEventosWs(evento:IEvento): Observable<IEvento>{
+        return this._http.post<IEvento>(this.url,evento);
     }
 
     public getEventos(): IEvento[] {
